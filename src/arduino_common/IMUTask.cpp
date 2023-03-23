@@ -129,7 +129,11 @@ void IMUTask::display()
     delay(100);
   }
 }
-\\
+
+
+// detect crash based on change in acceleration
+// [init_a] is the initial acceleration, [curr_a] is the current acceleration
+// [init_a] and [curr_a] are the l_2 norm of [a_x, a_y, a_z]
 bool IMUTask::detectCrash(float init_a, float curr_a, float dt) {
   // arbitrary threshold for change in acceleration when dt = 0.001 s
   float crash_threshold = 0.5;
@@ -137,5 +141,5 @@ bool IMUTask::detectCrash(float init_a, float curr_a, float dt) {
   // adjust crash threshold based on dt
   float adjusted_crash_threshold = crash_threshold * dt;
 
-  return abs(curr_a - init_a) > adjusted_crash_threshold;
+  return abs(curr_a - init_a) >= adjusted_crash_threshold;
 }
