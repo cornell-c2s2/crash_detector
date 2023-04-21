@@ -130,7 +130,6 @@ void IMUTask::display()
   }
 }
 
-
 // detect crash based on change in acceleration
 // [init_a] is the initial acceleration, [curr_a] is the current acceleration
 // [init_a] and [curr_a] are the l_2 norm of [a_x, a_y, a_z]

@@ -12,4 +12,5 @@ public:
   void setup();
   void execute();
   void display();
+  bool detectCrash(float init_acc_x, float init_acc_y, float init_acc_z);
 };
